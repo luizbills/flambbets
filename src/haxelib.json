@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "releasenote": "initial release",
+
+  "name": "flambbets",
+  "description": "Components and utilities to Flambe Games",
+  "url" : "https://github.com/luizbills/flambbets",
+  "tags": [
+    "flambe",
+    "snippets",
+    "game",
+    "sprite",
+    "tilemap",
+    "atlas"
+  ],
+
+  "license": "MIT",
+  "contributors": [
+    "luizbills"
+  ]
+}
