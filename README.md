@@ -25,6 +25,7 @@ Classes
 - SpriteSheetManager (supports margin and spacing)
 - SpriteSheetAnimation
 - BackgroundScroller
+- EntityFactory
 
 Roadmap
 -------
