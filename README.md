@@ -1,7 +1,7 @@
 flambbets v0.1.0
 ================
 
-Snippets (components and utilities) to [Flambe]() Game Framework
+Snippets (components and utilities) to [Flambe](https://github.com/aduros/flambe) Games
 
 Installation
 ------------
@@ -17,7 +17,7 @@ haxe_flags: -lib flambbets
 Usage
 -----
 
-**Now see the [examples](https://github.com/luizbills/flambe-snippets/tree/master/examples)**
+See the [examples](https://github.com/luizbills/flambe-snippets/tree/master/examples)
 
 Classes
 -------
@@ -25,11 +25,12 @@ Classes
 - SpriteSheetManager (supports margin and spacing)
 - SpriteSheetAnimation
 - BackgroundScroller
+- EntityFactory
 
 Roadmap
 -------
 
-- Texture Atlas
+- Texture Atlas (Manager and Animation)
 - [Tiled](http://www.mapeditor.org/) Tilemaps (TMX and JSON)
 
 License
