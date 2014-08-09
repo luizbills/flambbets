@@ -47,15 +47,13 @@ class Main {
     System.root.addChild(new Entity().add(sprite).add(animation));
 
 
-    // bonus
-    var spriteSheet2 = spriteSheet;
 
     // create static sprites
-    for (i in 0...6) {
+    for (i in 0...frames.length) {
 
       // you can get a single texture frame using `SpriteSheetManager.getFrame`
-      var frame = spriteSheet2.getFrame(i, 64, 96);
-      var sprite = new ImageSprite(frame).setXY((15 * i) + (i * 64), 200);
+      // var frame = spriteSheet.getFrame(i, 64, 96);
+      var sprite = new ImageSprite(frames[i]).setXY((15 * i) + (i * 64), 200);
 
       System.root.addChild(new Entity().add(sprite));
     }

@@ -11,7 +11,7 @@ class SpriteSheetTools {
 
   public static function getAllFrames(spriteSheet:Texture, frameWidth:Int, frameHeight:Int, maxFrames:Int = 0, margin:Int = 0, spacing:Int = 0):Array<Texture> {
     #if debug
-      validate(spriteSheet);
+      validate(spriteSheet, frameWidth, frameHeight, margin, spacing);
     #end
 
     var frames:Array<Texture> = new Array<Texture>();
@@ -44,7 +44,7 @@ class SpriteSheetTools {
   }
 
   public static function getFrame(spriteSheet:Texture, frameIndex:Int, frameWidth:Int, frameHeight:Int, margin:Int = 0, spacing:Int = 0):Texture {
-    var frame:Texture;
+    var frame:Texture = null;
 
     var width = spriteSheet.width;
     var height = spriteSheet.height;
@@ -53,10 +53,10 @@ class SpriteSheetTools {
       var row = Math.floor( (width - margin) / (frameWidth + spacing) );
       var column = Math.floor( (height - margin) / (frameHeight + spacing) );
 
-      validate(spriteSheet);
+      validate(spriteSheet, frameWidth, frameHeight, margin, spacing);
 
-      if (frameIndex > (row * column) || frameIndex < 0) {
-        throw "invalid frameIndex argument"
+      if (frameIndex >= (row * column) || frameIndex < 0) {
+        throw "invalid frameIndex argument";
       }
     #end
 

@@ -1,4 +1,4 @@
-flambbets v0.2.0
+flambbets v0.2.1
 ================
 
 Snippets (components and utilities) to [Flambe](https://github.com/aduros/flambe) Games
@@ -36,7 +36,7 @@ Roadmap
 Changelog
 ---------
 
-- changed SpriteSheetManager to SpriteSheetTools (Static Extension)
+- minor fixes on SpriteSheetTools
 
 License
 -------

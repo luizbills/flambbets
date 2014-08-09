@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "releasenote": "changed SpriteSheetManager to SpriteSheetTools (see CHANGELOG)",
+  "version": "0.2.1",
+  "releasenote": "minor fixes (see CHANGELOG)",
 
   "name": "flambbets",
   "description": "Components and utilities to Flambe Games",

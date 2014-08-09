@@ -24,7 +24,8 @@ orientation: portrait
 fullscreen: true
 
 # Additional flags to pass to the Haxe compiler.
-haxe_flags: -lib flambbets
+# haxe_flags: -lib flambbets
+haxe_flags: -cp ../../src
 
 # Additional paths to include in the build.
 # extra_paths:
