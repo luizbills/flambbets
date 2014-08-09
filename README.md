@@ -1,4 +1,4 @@
-flambbets v0.1.0
+flambbets v0.2.0
 ================
 
 Snippets (components and utilities) to [Flambe](https://github.com/aduros/flambe) Games
@@ -32,6 +32,11 @@ Roadmap
 
 - Texture Atlas (Parser and Animation)
 - [Tiled](http://www.mapeditor.org/) Tilemaps (TMX and JSON)
+
+CHANGELOG
+---------
+
+- changed SpriteSheetManager to SpriteSheetTools (Static Extension)
 
 License
 -------
