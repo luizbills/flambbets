@@ -22,15 +22,15 @@ See the [examples](https://github.com/luizbills/flambe-snippets/tree/master/exam
 Classes
 -------
 
-- SpriteSheetManager (supports margin and spacing)
-- SpriteSheetAnimation
-- BackgroundScroller
-- EntityFactory
+- SpriteSheetTools (static extension)
+- SpriteSheetAnimation (component)
+- BackgroundScroller (component)
+- EntityFactory (utility)
 
 Roadmap
 -------
 
-- Texture Atlas (Manager and Animation)
+- Texture Atlas (Parser and Animation)
 - [Tiled](http://www.mapeditor.org/) Tilemaps (TMX and JSON)
 
 License
