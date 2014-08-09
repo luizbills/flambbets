@@ -7,17 +7,39 @@ import flambe.display.ImageSprite;
 import flambe.display.Texture;
 import flambe.util.Signal0;
 
-// this component requires ImageSprite Component
+/**
+ * Component to create and play sprite sheet animations.
+ */
 class SpriteSheetAnimation extends Component {
 
-  // events
+  /**
+   * Emitted when an animation starts.
+   */
   public var onStart(default, null):Signal0 = new Signal0();
+
+  /**
+   * Emitted when an animation loops.
+   */
   public var onLoop(default, null):Signal0 = new Signal0();
+
+  /**
+   * Emitted when an animation complete playback or is stopped.
+   */
   public var onFinish(default, null):Signal0 = new Signal0();
 
+  /**
+   * The name of currently animation or null if no is playing any.
+   */
   public var currentAnimation(default, null):String;
+
+  /**
+   * Gets and sets the paused state of the current animation.
+   */
   public var paused(default, set):Bool = false;
 
+  /**
+   * @param frames Array containing all frames of animations.
+   */
   public function new(frames:Array<Texture>) {
     _allFrames = frames;
   }
@@ -58,6 +80,15 @@ class SpriteSheetAnimation extends Component {
     }
   }
 
+  /**
+   * Add an animation
+   *
+   * @param name An unique identifier to the animation.
+   * @param firstFrame The first frame of animation.
+   * @param lastFrame The last frame of animation.
+   * @param duration The duration of animation in seconds.
+   * @returns This instance, for chaining.
+   */
   public function add(name:String, firstFrame:Int, lastFrame:Int, duration:Float):SpriteSheetAnimation {
     #if debug
       if (name.length == 0) {
@@ -83,6 +114,13 @@ class SpriteSheetAnimation extends Component {
     return this;
   }
 
+  /**
+   * Starts an animation
+   *
+   * @param name The identifier of animation.
+   * @param loop Whether or not the animation is looped or just plays once.
+   * @returns This instance, for chaining.
+   */
   public function play(name:String, loop:Bool = false):SpriteSheetAnimation {
     _anim = _animations.get(name);
 
@@ -112,6 +150,11 @@ class SpriteSheetAnimation extends Component {
     return this;
   }
 
+  /**
+   * Reset the current animation.
+   *
+   * @returns This instance, for chaining.
+   */
   public function reset():SpriteSheetAnimation {
     if (currentAnimation != null) {
       owner.get(ImageSprite).texture = _allFrames[_anim.firstFrame];
@@ -123,6 +166,11 @@ class SpriteSheetAnimation extends Component {
     return this;
   }
 
+  /**
+   * Stop the current animation.
+   *
+   * @returns This instance, for chaining.
+   */
   public function stop():SpriteSheetAnimation {
     onFinish.emit();
 
@@ -151,6 +199,7 @@ class SpriteSheetAnimation extends Component {
   private var _animLoop:Bool;
 }
 
+// this class contains all informations of an animation
 private class AnimationData {
 
   public var firstFrame:Int;

@@ -7,7 +7,11 @@ import flambe.math.Point;
 
 // Based on: https://github.com/aduros/flambe-demos/blob/master/shmup/src/shmup/BackgroundScroller.hx
 
-// this component requires PatternSprite Component
+/**
+ * Component to create parallax effect
+ *
+ * note: this component requires PatternSprite Component
+ */
 class BackgroundScroller extends Component {
 
   public var speed(default, null):Point;

@@ -1,15 +1,28 @@
-// This class is a Static Extension
 package flambbets.spritesheet;
 
 import haxe.ds.StringMap;
 
 import flambe.display.Texture;
 
-// based on: https://github.com/photonstorm/phaser/blob/master/src/animation/AnimationParser.js#L27-L96
-
+/**
+ * Utilities for Sprite Sheet Textures. Designed to be imported with 'using'.
+ *
+ * based on: https://github.com/photonstorm/phaser/blob/master/src/animation/AnimationParser.js#L27-L96
+ */
 class SpriteSheetTools {
 
+  /**
+   * Get all frames of a sprite sheet
+   *
+   * @param frameWidth Width of each frame.
+   * @param frameHeight Height of each frame.
+   * @param maxFrames The total number of frames to extract from the sprite sheet. The default value of 0 means "extract all frames".
+   * @param margin If the frames have been drawn with a margin, specify the amount here.
+   * @param spacing If the frames have been drawn with spacing between them, specify the amount here.
+   * @returns An array containing all frames.
+   */
   public static function getAllFrames(spriteSheet:Texture, frameWidth:Int, frameHeight:Int, maxFrames:Int = 0, margin:Int = 0, spacing:Int = 0):Array<Texture> {
+
     #if debug
       validate(spriteSheet, frameWidth, frameHeight, margin, spacing);
     #end
@@ -43,6 +56,16 @@ class SpriteSheetTools {
     return frames;
   }
 
+  /**
+   * Get one specific frame of a sprite sheet
+   *
+   * @param frameIndex the numeric index of the frame. e.g.: The first frame is the index of 0.
+   * @param frameWidth Width of each frame.
+   * @param frameHeight Height of each frame.
+   * @param margin If the frames have been drawn with a margin, specify the amount here.
+   * @param spacing If the frames have been drawn with spacing between them, specify the amount here.
+   * @returns The frame, a texture.
+   */
   public static function getFrame(spriteSheet:Texture, frameIndex:Int, frameWidth:Int, frameHeight:Int, margin:Int = 0, spacing:Int = 0):Texture {
     var frame:Texture = null;
 
@@ -50,10 +73,10 @@ class SpriteSheetTools {
     var height = spriteSheet.height;
 
     #if debug
+      validate(spriteSheet, frameWidth, frameHeight, margin, spacing);
+
       var row = Math.floor( (width - margin) / (frameWidth + spacing) );
       var column = Math.floor( (height - margin) / (frameHeight + spacing) );
-
-      validate(spriteSheet, frameWidth, frameHeight, margin, spacing);
 
       if (frameIndex >= (row * column) || frameIndex < 0) {
         throw "invalid frameIndex argument";
