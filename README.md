@@ -33,7 +33,7 @@ Roadmap
 - Texture Atlas (Parser and Animation)
 - [Tiled](http://www.mapeditor.org/) Tilemaps (TMX and JSON)
 
-CHANGELOG
+Changelog
 ---------
 
 - changed SpriteSheetManager to SpriteSheetTools (Static Extension)
