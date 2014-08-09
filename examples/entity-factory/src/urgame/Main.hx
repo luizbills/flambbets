@@ -13,23 +13,23 @@ class Main {
     System.init();
 
     // define an Entity
-    EntityFactory.set('red-tile', function() {
-      var redTile = new FillSprite(0xFF0000, 32, 32);
+    EntityFactory.set('square', function() {
+      var randomColor = Math.floor(Math.random() * 0xFFFFFF);
+      var square = new FillSprite(randomColor, 32, 32);
 
       // ever returns an entity
-      return new Entity().add(redTile);
+      return new Entity().add(square);
     });
 
-    for (i in 0...10) {
+    for (i in 0...25) {
       var randX = Math.floor(Math.random() * 600);
       var randY = Math.floor(Math.random() * 400);
 
       // create a defined entity
-      var redTileEntity = EntityFactory.get('red-tile');
+      var squareEntity = EntityFactory.get('square');
+      squareEntity.get(FillSprite).setXY(randX, randY); // random position
 
-      redTileEntity.get(FillSprite).setXY(randX, randY);
-
-      System.root.addChild(redTileEntity);
+      System.root.addChild(squareEntity);
     }
   }
 

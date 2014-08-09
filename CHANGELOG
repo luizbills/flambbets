@@ -1,0 +1,7 @@
+v0.2.0
+
+- changed SpriteSheetManager to SpriteSheetTools (Static Extension)
+
+v0.1.0
+
+- initial release

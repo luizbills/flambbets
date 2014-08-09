@@ -1,6 +1,6 @@
 {
-  "version": "0.1.0",
-  "releasenote": "initial release",
+  "version": "0.2.0",
+  "releasenote": "changed SpriteSheetManager to SpriteSheetTools (see CHANGELOG)",
 
   "name": "flambbets",
   "description": "Components and utilities to Flambe Games",
@@ -9,7 +9,7 @@
     "flambe",
     "snippets",
     "game",
-    "sprite",
+    "spritesheet",
     "tilemap",
     "atlas"
   ],

@@ -7,8 +7,9 @@ import flambe.asset.Manifest;
 import flambe.display.ImageSprite;
 import flambe.util.Random;
 
-import flambbets.spritesheet.SpriteSheetManager;
 import flambbets.spritesheet.SpriteSheetAnimation;
+
+using flambbets.spritesheet.SpriteSheetTools;
 
 class Main {
 
@@ -24,10 +25,10 @@ class Main {
 
   private static function onSuccess (pack :AssetPack) {
     // use the SpriteSheetManager to create the sprite sheet frames
-    SpriteSheetManager.create('link-frames', pack.getTexture('link'), 64, 96);
+    var spriteSheet = pack.getTexture('link');
 
     // get the frames to be used in animation
-    var frames = SpriteSheetManager.getAllFrames('link-frames');
+    var frames = spriteSheet.getAllFrames(64, 96);
 
     // use a SpriteSheetAnimation to create and play animations
     var animation = new SpriteSheetAnimation(frames);
@@ -45,19 +46,16 @@ class Main {
     // add to world
     System.root.addChild(new Entity().add(sprite).add(animation));
 
+
     // bonus
-    SpriteSheetManager.create('crystal-frames', pack.getTexture('crystals'), 64, 64);
+    var spriteSheet2 = spriteSheet;
 
     // create static sprites
-    for (i in 0...10) {
-      var randFrame = Math.floor(Math.random() * 2);
-      var randX = Math.floor(Math.random() * 600);
-      var randY = Math.floor(Math.random() * 400);
+    for (i in 0...6) {
 
-      // you can get a texture frame using `SpriteSheetManager.getFrame`
-      var texture = SpriteSheetManager.getFrame('crystal-frames', randFrame);
-      var sprite = new ImageSprite(texture);
-      sprite.setXY(randX, randY);
+      // you can get a single texture frame using `SpriteSheetManager.getFrame`
+      var frame = spriteSheet2.getFrame(i, 64, 96);
+      var sprite = new ImageSprite(frame).setXY((15 * i) + (i * 64), 200);
 
       System.root.addChild(new Entity().add(sprite));
     }
