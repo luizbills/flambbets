@@ -1,3 +1,8 @@
+v0.3.0
+
+- added Camera (system)
+- added FixedToCamera (component)
+
 v0.2.1
 
 - minor fixes on SpriteSheetTools

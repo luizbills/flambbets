@@ -1,4 +1,4 @@
-flambbets v0.2.1
+flambbets v0.3.0
 ================
 
 Snippets (components and utilities) to [Flambe](https://github.com/aduros/flambe) Games
@@ -26,6 +26,8 @@ Classes
 - SpriteSheetAnimation (component)
 - BackgroundScroller (component)
 - EntityFactory (utility)
+- Camera (utility)
+- FixedToCamera (component)
 
 Roadmap
 -------
@@ -36,7 +38,8 @@ Roadmap
 Changelog
 ---------
 
-- minor fixes on SpriteSheetTools
+- added Camera (system)
+- added FixedToCamera (component)
 
 License
 -------

@@ -1,6 +1,6 @@
 {
-  "version": "0.2.1",
-  "releasenote": "minor fixes (see CHANGELOG)",
+  "version": "0.3.0",
+  "releasenote": "added Camera System (see CHANGELOG)",
 
   "name": "flambbets",
   "description": "Components and utilities to Flambe Games",
@@ -11,7 +11,8 @@
     "game",
     "spritesheet",
     "tilemap",
-    "atlas"
+    "atlas",
+    "camera"
   ],
 
   "license": "MIT",
