@@ -1,6 +1,6 @@
 {
-  "version": "0.3.0",
-  "releasenote": "added Camera System (see CHANGELOG)",
+  "version": "0.3.1",
+  "releasenote": "improved Camera system (see CHANGELOG)",
 
   "name": "flambbets",
   "description": "Components and utilities to Flambe Games",

@@ -1,4 +1,4 @@
-flambbets v0.3.0
+flambbets v0.3.1
 ================
 
 Snippets (components and utilities) to [Flambe](https://github.com/aduros/flambe) Games
@@ -38,8 +38,7 @@ Roadmap
 Changelog
 ---------
 
-- added Camera (system)
-- added FixedToCamera (component)
+- improved Camera system.
 
 License
 -------

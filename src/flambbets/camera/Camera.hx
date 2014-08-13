@@ -12,12 +12,34 @@ class Camera extends Component {
   public static var x:AnimatedFloat;
   public static var y:AnimatedFloat;
 
-  // because it's instanced internally;
-  private function new() {}
+  // private constructor
+  // because it's instanced internally (as a single tone)
+  // private function new() {}
 
   override public function onUpdate(dt:Float) {
     x.update(dt);
     y.update(dt);
+
+    if (_x != x._ || _y != y._) {
+      var diffX = _x - x._;
+      var diffY = _y - y._;
+
+      _cameraRect.x = _x = x._;
+      _cameraRect.y = _y = y._;
+
+      var root = System.root;
+      var child = root.firstChild;
+
+      while (child != null) {
+        var next = child.next;
+        var sprite = child.get(Sprite);
+        if (sprite != null && !child.has(FixedToCamera)) {
+          sprite.x._ += diffX;
+          sprite.y._ += diffY;
+        }
+        child = next;
+      }
+    }
   }
 
   public static function initialize() {
@@ -33,44 +55,10 @@ class Camera extends Component {
     System.root.addChild(new Entity().add(new Camera()));
 
     _cameraRect = new Rectangle(0, 0, System.stage.width, System.stage.height);
-    x = new AnimatedFloat(0, onChangedX);
-    y = new AnimatedFloat(0, onChangedY);
+    x = new AnimatedFloat(0);
+    y = new AnimatedFloat(0);
 
     System.stage.resize.connect(onResized);
-  }
-
-  private static function onChangedX(cur:Float, prev:Float) {
-    var root = System.root;
-    var child = root.firstChild;
-    var diff = prev - cur;
-
-    _cameraRect.x = cur;
-
-    while (child != null) {
-      var next = child.next;
-      var sprite = child.get(Sprite);
-      if (sprite != null && !child.has(FixedToCamera)) {
-        sprite.x._ += diff;
-      }
-      child = next;
-    }
-  }
-
-  private static function onChangedY(cur:Float, prev:Float) {
-    var root = System.root;
-    var child = root.firstChild;
-    var diff = prev - cur;
-
-    _cameraRect.y = cur;
-
-    while (child != null) {
-      var next = child.next;
-      var sprite = child.get(Sprite);
-      if (sprite != null && !child.has(FixedToCamera)) {
-        sprite.x._ += diff;
-      }
-      child = next;
-    }
   }
 
   private static function onResized() {
@@ -81,6 +69,9 @@ class Camera extends Component {
   #if debug
     private static var _initialized:Bool = false;
   #end
+
+  private var _x:Float = 0;
+  private var _y:Float = 0;
 
   // will be used for future implementations
   private static var _cameraRect:Rectangle;
